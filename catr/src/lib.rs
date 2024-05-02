@@ -67,12 +67,12 @@ pub fn run(config: Config) -> MyResult<()> {
                 for line in file.lines() {
                     let linestr = line.unwrap();
                     if config.number_lines {
-                        print!("\t{}  ",line_num);
+                        print!("     {}\t",line_num);
                         line_num += 1;
                     }
                     else if config.number_nonblank_lines {
                         if linestr != "" {
-                            print!("\t{}  ",line_num);
+                            print!("     {}\t",line_num);
                             line_num += 1;
                         }
                     }
