@@ -65,14 +65,14 @@ pub fn run(config: Config) -> MyResult<()> {
                 //println!("Opened {}", filename);
                 let mut line_num = 1;
                 for line in file.lines() {
-                    let linestr = line.unwrap();
+                    let linestr = line?;
                     if config.number_lines {
-                        print!("     {}\t",line_num);
+                        print!("{:>6}\t",line_num);
                         line_num += 1;
                     }
                     else if config.number_nonblank_lines {
                         if linestr != "" {
-                            print!("     {}\t",line_num);
+                            print!("{:>6}\t",line_num);
                             line_num += 1;
                         }
                     }
