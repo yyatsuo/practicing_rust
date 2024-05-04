@@ -65,18 +65,18 @@ pub fn run(config: Config) -> MyResult<()> {
                 //println!("Opened {}", filename);
                 let mut line_num = 1;
                 for line in file.lines() {
-                    let linestr = line?;
+                    let line = line?;
                     if config.number_lines {
                         print!("{:>6}\t",line_num);
                         line_num += 1;
                     }
                     else if config.number_nonblank_lines {
-                        if linestr != "" {
+                        if line != "" {
                             print!("{:>6}\t",line_num);
                             line_num += 1;
                         }
                     }
-                    println!("{}", linestr);
+                    println!("{}", line);
                 }
             }
         }
